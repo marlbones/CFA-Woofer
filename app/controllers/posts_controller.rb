@@ -5,8 +5,14 @@ class PostsController < ApplicationController
 
   # GET /posts
   # GET /posts.json
+  def feed
+    @list = current_user.followees(User)
+    
+  end
+
   def index
     @posts = Post.all
+
   end
 
   def toggle_follow

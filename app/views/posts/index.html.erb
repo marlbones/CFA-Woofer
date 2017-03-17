@@ -5,6 +5,8 @@
 <h1>Woofer Feed</h1>
 <h2><%= @user.email %></h2>
 <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
+<br>
+
 
 <h1>Barks</h1>
 
@@ -31,3 +33,4 @@
 <br>
 
 <%= link_to 'Create New Bark', new_post_path %>
+<%= link_to 'Feed', feed_posts_path %>

@@ -5,6 +5,10 @@ Rails.application.routes.draw do
     member do
       get 'toggle_follow', to: 'posts#toggle_follow'
       get 'toggle_like', to: 'posts#toggle_like'
+
+    end
+    collection do
+      get 'feed'
     end
   end
   devise_for :users
