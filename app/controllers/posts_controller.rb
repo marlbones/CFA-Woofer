@@ -7,7 +7,12 @@ class PostsController < ApplicationController
   # GET /posts.json
   def feed
     @list = current_user.followees(User)
-    
+    @feed_posts = []
+    @list.each do |item|
+      item.posts.each do |post|
+      @feed_posts << post
+    end
+    end
   end
 
   def index

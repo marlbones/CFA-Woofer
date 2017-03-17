@@ -1,11 +1,17 @@
 <h1>Feed page</h1>
-<h2>You are following:</h2>
+<!-- <h2>You are following:</h2>
 <%@list.each do |person_we_follow| %>
 <br>
 <%= person_we_follow.email %>
 <% end %>
-<br>
-<%@list.each do |person_we_follow| %>
+<br> -->
+<!-- <%@list.each do |person_we_follow| %>
 <br>
 <%= person_we_follow.posts[0].content %>
+<% end %> -->
+
+<% @feed_posts.each do |f| %>
+<br>
+<%= f.content %>
+<%= f.user.email %>
 <% end %>
