@@ -13,6 +13,7 @@ class PostsController < ApplicationController
       @feed_posts << post
     end
     end
+    @feed_posts = @feed_posts.sort! { |a,b| b[:created_at] <=> a[:created_at] }
   end
 
   def index
