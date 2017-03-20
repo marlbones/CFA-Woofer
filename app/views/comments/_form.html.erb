@@ -1,0 +1,13 @@
+
+<%= form_for([@post, @post.comments.build]) do |f| %>
+
+<p>
+  <%= f.text_area :content %>
+</p>
+
+<br>
+
+<%= f.submit %>
+
+
+<% end %>

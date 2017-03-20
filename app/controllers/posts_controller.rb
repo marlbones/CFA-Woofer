@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show, :edit, :update, :destroy, :toggle_follow, :toggle_like]
-  before_action :set_current_user, only: [:index, :toggle_follow, :toggle_like, :show]
+  before_action :set_post, only: [:show, :edit, :update, :destroy, :toggle_follow, :toggle_like, :comments]
+  before_action :set_current_user, only: [:index, :toggle_follow, :toggle_like, :show, :comments]
 
 
   # GET /posts
@@ -32,12 +32,12 @@ class PostsController < ApplicationController
   redirect_to :back
   end
 
-
   # GET /posts/1
   # GET /posts/1.json
   def show
   @follow_status = @user.follows?(@post.user) ? 'Unfollow' : 'Follow'
   @like_status  = @user.likes?(@post) ? 'Unlike' : 'Like'
+  @likes_num = @post.likers(User).count
   end
 
   # GET /posts/new

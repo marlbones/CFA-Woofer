@@ -12,6 +12,5 @@
 
 <% @feed_posts.each do |f| %>
 <br>
-<%= f.content %>
-<%= f.user.email %>
+<p>"<%= f.content %>" | <%= f.user.email %></p>
 <% end %>
