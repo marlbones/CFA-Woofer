@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>Woofer</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,8 +10,9 @@
   </head>
 
   <body>
-    <div class = "container">
-    <%= yield %>
-  </div>
+    <%= render 'partials/nav' %>
+    <div class="container">
+      <%= yield %>
+    </div>
   </body>
 </html>

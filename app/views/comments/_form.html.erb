@@ -1,13 +1,15 @@
 
 <%= form_for([@post, @post.comments.build]) do |f| %>
 
-<p>
-  <%= f.text_area :content %>
-</p>
+<div class="input-field">
+    <%= f.label :add_comment %>
+  <%= f.text_field :content %>
+</div>
 
 <br>
 
+<a class="waves-effect waves-teal btn-flat">
 <%= f.submit %>
-
+</a>
 
 <% end %>

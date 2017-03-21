@@ -1,0 +1,39 @@
+<nav>
+  <div class="nav-wrapper">
+    <div class = "container">
+    <a href="#" class="brand-logo"><i class="large material-icons">pets</i>Woofer</a>
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <% if user_signed_in? %>
+        <li>
+          <%= link_to 'Home', posts_path %>
+        </li>
+      <% else %>
+      <% end %>
+
+      <% if user_signed_in? %>
+        <li>
+          <%= link_to 'Feed', feed_posts_path %>
+        </li>
+      <% else %>
+      <% end %>
+
+      <% if user_signed_in? %>
+        <li>
+          <%= link_to 'Bark', new_post_path %>
+        </li>
+      <% else %>
+      <% end %>
+
+      <% if user_signed_in? %>
+        <li>
+          <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+        </li>
+      <% else %>
+        <li>
+          <%= link_to('Login', new_user_session_path)  %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+  </div>
+</nav>

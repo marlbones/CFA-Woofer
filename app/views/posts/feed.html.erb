@@ -1,4 +1,6 @@
-<h1>Feed page</h1>
+<h3>Feed</h3>
+<h4>(the latest from the barkers you're following)</h4>
+<br>
 <!-- <h2>You are following:</h2>
 <%@list.each do |person_we_follow| %>
 <br>
@@ -11,6 +13,20 @@
 <% end %> -->
 
 <% @feed_posts.each do |f| %>
-<br>
-<p>"<%= f.content %>" | <%= f.user.email %></p>
+<div class="col s12 m7">
+  <div class="card horizontal">
+    <div class="card-stacked">
+      <div class="card-content">
+        <p><%= f.user.email %> barks:</p>
+        <br>
+        <p>"<%= f.content %>""</p>
+      </div>
+      <div class="card-action">
+        <%= link_to 'Show', f %>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- <br>
+<p>"<%= f.content %>" | <%= f.user.email %></p> -->
 <% end %>

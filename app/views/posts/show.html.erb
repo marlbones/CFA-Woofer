@@ -1,26 +1,33 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Bark:</strong>
-  <%= @post.content %>
-</p>
+<div class="col s12 m7">
+  <div class="card horizontal">
+    <div class="card-stacked">
+      <div class="card-content">
+        <p><%= @post.user.email %> barks:</p>
+        <br>
+        <p>"<%= @post.content %>""</p>
+      </div>
+      <div class="card-action">
+        <div class="chip">
+          <i class="material-icons">thumb_up</i>
+          <%= @likes_num %>
+        </div>
+        <%= link_to @like_status, toggle_like_post_path %>
+        <%= link_to @follow_status, toggle_follow_post_path(user_id: @post.user_id) %>
+      </div>
+    </div>
+  </div>
+</div>
 
-<p>
-  <strong>User:</strong>
-  <%= @post.user.email %>
-</p>
 
-<%= link_to @follow_status, toggle_follow_post_path(user_id: @post.user_id) %>
+
 <br>
-<%= link_to @like_status, toggle_like_post_path %>
-<br>
-<p>Number of likes: <%= @likes_num %></p>
-<%= link_to 'Back', posts_path %>
-<br>
-<%= @post.comments.count %>
-<br>
+<h5>Comments:</h5>
 <%= render @post.comments %>
 <br>
-<p>Add a Comment:</p>
 <%= render 'comments/form' %>
-<!-- # <%= link_to "Add Comment", new_post_comment_path(post_id: @post.id) %> -->
+
+<!-- <%= link_to "Add Comment", new_post_comment_path(post_id: @post.id) %> -->
+<br>
+<a class="waves-effect waves-teal btn-flat" href="<%= posts_path %>">Back</a>
